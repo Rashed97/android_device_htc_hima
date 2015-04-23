@@ -19,6 +19,10 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 $(call inherit-product-if-exists, vendor/htc/hima-common/hima-common-vendor.mk)
 
+# dtbToolCM
+PRODUCT_PACKAGES += \
+    dtbToolCM
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
