@@ -55,7 +55,7 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 us
 BOARD_KERNEL_BASE := 0x00078000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DT := true
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01f88000 --tags_offset 0x01d88000 --dt device/htc/hima/recovery/dt.img
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01f88000 --tags_offset 0x01d88000
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
@@ -67,17 +67,23 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
 # Recovery
-#BOARD_CUSTOM_BOOTIMG_MK := device/htc/hima/recovery/mkbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := device/htc/hima/mkbootimg.mk
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_RECOVERY_SWIPE := true
 BOARD_SUPPRESS_SECURE_ERASE := true
 BOARD_USES_MMCUTILS := true
-TARGET_PREBUILT_KERNEL := device/htc/hima/recovery/kernel
+#TARGET_PREBUILT_KERNEL := device/htc/hima/recovery/kernel
 TARGET_RECOVERY_INITRC := device/htc/hima/recovery/etc/init.rc
 TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_KERNEL_SOURCE := kernel/htc/msm8994
+TARGET_KERNEL_CONFIG := cyanogenmod_m9_defconfig
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+TARGET_USES_UNCOMPRESSED_KERNEL := true
 
 # TWRP Build Flags
 #BOARD_RECOVERY_BLDRMSG_OFFSET := 2048
